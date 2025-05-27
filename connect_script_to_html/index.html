@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Підключення JavaScript до сторінки</title>
+</head>
+<body>
+
+    <main>
+        <div class="content my-5">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Підключення JavaScript до сторінки</h1>
+
+                        <p>Для підключення JavaScript до вашої сторінки використовуйте тег <code>&lt;script&gt;</code>. Є декілька способів це зробити:</p>
+
+                        <h3>Вкладений JavaScript</h3>
+                        <p>Ви можете вбудувати JavaScript безпосередньо в HTML-код за допомогою тега <code>&lt;script&gt;</code> у розділі <code>&lt;head&gt;</code> або <code>&lt;body&gt;</code>.</p>
+
+                        <h3>Зовнішній JavaScript файл</h3>
+                        <p>Також ви можете створити окремий JavaScript файл з розширенням <code>.js</code> та підключити його до вашого HTML за допомогою тега <code>&lt;script src="шлях_до_файлу.js"&gt;&lt;/script&gt;</code>.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!--
+        Тег <script> містить JavaScript-код, який автоматично виконається,
+        коли браузер його обробить.
+   -->
+
+    <script>
+        alert("Hello, I am JS alert function!");
+    </script>
+
+
+
+    <!-- Як підключити JS до HTML -->
+
+    <!-- Спосіб №1 - Писати JS прямо в HTML -->
+<!--    <script>-->
+<!--        console.log('Hello world');-->
+<!--        console.log(2 + 2);-->
+<!--    </script>-->
+
+
+    <!-- Спосіб №2 - Підключаємо JS окремим файлом  -->
+<!--    <script src="./js/script-example.js"></script>-->
+
+
+    <!-- Підключення зовнішніх скриптів -->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"-->
+<!--            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"-->
+<!--            crossorigin="anonymous"-->
+<!--    ></script>-->
+
+
+    <!-- Так робити не можна -->
+<!--    <script src="./js/script-example.js">-->
+<!--        console.log('Ho-ho-ho!');-->
+<!--    </script>-->
+
+    <!-- Потрібно вибрати один спосіб підключення файлу або написання JS коду HTML -->
+    <!-- Для того, щоб все працювало, нам потрібно розділити скрипти. -->
+
+<!--    <script src="./js/script-example.js"></script>-->
+<!--    <script>-->
+<!--        console.log('Ho-ho-ho!');-->
+<!--    </script>-->
+
+    <!--
+         Також теги мають унікальні атрибути, які можуть змінювати
+         поведінка скрипта чи алгоритм його завантаження та інтерпретації.
+
+         Наприклад:
+             1. Атрибути async і defer говорять браузеру, що скрипти потрібно завантажувати
+             і інтерпретувати не так як завжди. Про це поговоримо у наступних уроках.
+
+             2. Аттрибут type="" може визначати, як саме ми будемо використовувати наші JS
+             файли. Якщо ми встановимо цьому атрибуту значення "module", то матимемо можливість
+             імпортувати та експортувати окремі функції, змінні тощо.
+
+         Також варто сказати, що тег <script> ми можемо вставляти в будь-якому місці нашого HTML
+         файлу. І все працюватиме. Хорошою практикою вважається підключати JS файли перед
+         закриваючим тегом </body> щоб вони не гальмували рендер сторінки, а також гарною
+         практикою вважається не змішувати код, а отже, не писати JavaScript код у HTML файлах.
+    -->
+</body>
+</html>
