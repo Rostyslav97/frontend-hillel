@@ -1,3 +1,5 @@
+'use strict';
+
 function getPositiveNumbers(inputArray) {
     if (!Array.isArray(inputArray) || inputArray.length === 0) {
         return "Масив порожній або не є масивом";
