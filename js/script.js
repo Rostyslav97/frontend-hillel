@@ -29,8 +29,8 @@ const padString = (str, num, symbol, left = false) => {
     return left ? template + str : str + template;
 };
 
-const exampleStr = padString('null', 8, '*');
-const exampleStr2 = padString('null', 0, '*');
+const exampleStr = padString('hello', 8, '*');
+const exampleStr2 = padString('hello', 6, '*', true);
 const exampleStr3 = padString('hello', 2, '*');
 
 console.log(exampleStr);
