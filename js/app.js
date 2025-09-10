@@ -3,50 +3,52 @@
 function createUserInterface() {
 
     const form = document.querySelector('[data-form]');
-
     const submitBtn = form.querySelector('[type="submit"]');
-    submitBtn.setAttribute('disabled', 'disabled');
-    submitBtn.disabled = true;
-
     const inputs = Array.from(form.querySelectorAll('input'));
+    const listContainer = document.querySelector('.list-group');
+
+    const renderUsers = () => {
+        listContainer.innerHTML = '';
+        const users = dataBase.getData();
+
+        users.forEach(user => {
+            const li = document.createElement('li');
+            li.classList.add('list-group-item', 'd-flex', 'align-items-center', 'justify-content-between');
+            li.innerHTML = `
+                <div class="text-black"><b>${user.firstName} ${user.lastName}</b> - ${user.phone}</div>
+                <button class="btn btn-danger btn-sm">Delete</button>
+            `;
+            const deleteBtn = li.querySelector('button');
+            deleteBtn.addEventListener('click', () => {
+                dataBase.deleteData({id: user.id});
+                renderUsers();
+            });
+
+            listContainer.appendChild(li);
+        });
+    }
+
+    const disabledHandler = () => {
+        const isFilled = inputs.every(input => input.value.trim().length > 0);
+        submitBtn.disabled = !isFilled;
+    }
+
+    form.addEventListener('input', disabledHandler);
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        e.stopPropagation();
-        const {target} = e;
-
-        // Get data from the form
-        const data = inputs.reduce((acc, {name, value}) =>{
+        const data = inputs.reduce((acc, {name, value}) => {
             acc[name] = value;
             return acc;
         }, {});
 
-
-        target.reset()
-
-        dataBase.setData(data)
-
-        console.log(dataBase.getData())
+        dataBase.setData(data);
+        form.reset();
+        submitBtn.disabled = true;
+        renderUsers();
     });
 
-    const disabledHandler = (e) => {
-        let isInputFilled = true;
-        for(let i = 0; i < inputs.length; i++) {
-            if(!inputs[i].value.trim().length) {
-                isInputFilled = false;
-                break;
-            }
-        }
-
-        if(isInputFilled) {
-            submitBtn.removeAttribute('disabled')
-            submitBtn.disabled = false;
-        } else {
-            submitBtn.setAttribute('disabled', 'disabled');
-            submitBtn.disabled = true;
-        }
-    }
-    form.addEventListener('input', disabledHandler)
+    renderUsers();
 }
 
-createUserInterface()
+createUserInterface();
