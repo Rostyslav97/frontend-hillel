@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script>
+  let name = null;
+  if(localStorage.getItem('name')) {
+    name = localStorage.getItem('name');
+  } else {
+    name = prompt();
+    localStorage.setItem('name', name);
+  }
+
+  setTimeout(() => {
+    if(confirm('Чи видалити дані з LocalStorage ??')) {
+        localStorage.removeItem('name')
+    }
+  }, 5000)
+
+
+
+  const container = document.getElementById('example')
+  container.innerHTML = name
+
+
+  // sessionStorage працює так само як і localStorage але в рамках однієї вкладки браузеру
+</script>
+
+</body>
+</html>
