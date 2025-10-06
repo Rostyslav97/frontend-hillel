@@ -1,1 +1,4 @@
 # Front-end learning repo
+
+Перечитати і повторити в себе в редакторі приклади з всіх сторінок з блоку
+https://react.dev/learn
