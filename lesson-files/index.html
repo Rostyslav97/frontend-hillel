@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<button onclick="alert(123)">Hello</button>
+
+
+<script>
+  const user = {
+    firstName: 'Vova',
+    lastName: 'Shaitan',
+    age: 27,
+    gender: 'male',
+    isRetard: true
+  }
+
+  const {firstName: userName, lastName: userSurname, ...u} = user
+
+  console.log(userName)
+  console.log(userSurname)
+  console.log(u)
+  console.log(user)
+
+
+  function createUser({firstName, age}) {
+    const data = {
+      name: firstName,
+      age: age
+    }
+
+    return data;
+  }
+
+  createUser(user)
+
+
+  console.log('------')
+
+
+  const arr = [{name: 'Mazda'}, {name: 'Opel'}, {name: 'Volkswagen'}, {name: 'BMW'}]
+
+  const [mazda, opel, ...cars] = arr;
+  console.log(mazda);
+  console.log(opel);
+  console.log(cars)
+
+</script>
+</body>
+</html>
