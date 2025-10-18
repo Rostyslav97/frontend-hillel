@@ -1,0 +1,24 @@
+.timer {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    margin: 20px auto;
+    background: #f3f3f3;
+}
+
+.timer h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.timer h2.stopped {
+    color: red;
+}
+
+.controls button {
+    margin: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
