@@ -14,6 +14,7 @@ class TimerClass extends Component {
 
     componentDidMount() {
         console.log("Timer mounted");
+        this.startTimer();
     }
 
     componentDidUpdate(prevProps, prevState) {
